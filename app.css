@@ -1,3 +1,6 @@
+body{
+    margin-top: 70px;
+}
 /*NAVBAR START*/
     nav {
         background: #2c3e50;
@@ -44,6 +47,7 @@
     .nav-links a {
         text-decoration: none;
         color: white;
+        font-size: large;
         font-weight: bold;
         padding: 0.5rem;
         display: block;
