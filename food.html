@@ -7,7 +7,33 @@
     <link rel="stylesheet" href="./css/food.css">
 </head>
 <body>
-    <div>
+<nav>
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li class="dropdown-parent">
+                    <a href="#">User Menu</a>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="index.html">Users</a></li>
+                            <li><a href="html/posts.html">Posts</a></li>
+                            <li><a href="html/comments.html">Comments</a></li>
+                            <li><a href="html/todos.html">Todos</a></li>
+                            <li><a href="html/albums.html">Albums</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="countries.html">Countries</a></li>
+                <li><a href="food.html">Foods</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="search-container">
+        <h1>Explore The World of Food</h1>
+        <p>Search for your favorite food from around the world.</p>
         <input type="text" id="search" placeholder="Search for food...">
         <button id="searchButton">Search</button>
     </div>
