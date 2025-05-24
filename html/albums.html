@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums here</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li class="dropdown-parent" onclick="toggleDropdown(this)">
+                    <a href="#">User Menu ▼</a>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="index.html">Users</a></li>
+                            <li><a href="posts.html">Posts</a></li>
+                            <li><a href="comments.html">Comments</a></li>
+                            <li><a href="todos.html">Todos</a></li>
+                            <li><a href="albums.html">Albums</a></li>
+                        </ul>
+                        <div class="cross-links">
+                            <a href="countries.html">Countries</a>
+                            <a href="food.html">Foods</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="dropdown-parent" onclick="toggleDropdown(this)">
+                    <a href="countries.html">Countries ▼</a>
+                    <div class="dropdown">
+                        <div class="cross-links">
+                            <a href="index.html">Users</a>
+                            <a href="posts.html">Posts</a>
+                            <a href="comments.html">Comments</a>
+                            <a href="todos.html">Todos</a>
+                            <a href="albums.html">Albums</a>
+                            <a href="food.html">Foods</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="search-container">
+                    <div class="search-field">
+                        <input type="text" id="search-country" placeholder="Search countries...">
+                        <button class="search-button" id="search-country-button">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </li>
+                
+                <li class="dropdown-parent" onclick="toggleDropdown(this)">
+                    <a href="food.html">Foods ▼</a>
+                    <div class="dropdown">
+                        <div class="cross-links">
+                            <a href="index.html">Users</a>
+                            <a href="posts.html">Posts</a>
+                            <a href="comments.html">Comments</a>
+                            <a href="todos.html">Todos</a>
+                            <a href="albums.html">Albums</a>
+                            <a href="countries.html">Countries</a>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="search-container">
+                    <div class="search-field">
+                        <input type="text" id="search-food" placeholder="Search foods...">
+                        <button class="search-button" id="search-food-button">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        
+    <div id="albums"></div>
+    
+
+
+
+    <script src="../js/user.js"></script>
+</body>
+</html>

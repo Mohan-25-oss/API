@@ -1,0 +1,154 @@
+/* সার্চ কন্টেইনার স্টাইল */
+div {
+    display: flex;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(143, 105, 105, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    }
+
+    /* ইনপুট ফিল্ড স্টাইল */
+    #search {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f5f5f5;
+    }
+
+    #search::placeholder {
+    color: #999;
+    font-style: italic;
+    }
+
+    /* সার্চ বাটন স্টাইল */
+    #searchButton {
+    padding: 0 25px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    }
+
+    #searchButton:hover {
+    background: #45a049;
+    }
+
+    /* ফোকাস স্টাইল */
+    #search:focus {
+    background: #e8f5e9;
+    }
+
+    /* রেস্পন্সিভ ডিজাইন */
+    @media (max-width: 768px) {
+    div {
+        margin: 20px 15px;
+        border-radius: 25px;
+    }
+    
+    #search {
+        padding: 12px 15px;
+    }
+    
+    #searchButton {
+        padding: 0 20px;
+    }
+    }
+
+    /* মেইন কন্টেইনার স্টাইল */
+#foods {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 20px;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+/* প্রতিটি ফুড আইটেমের স্টাইল */
+.food {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.food:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ফুড ইমেজ স্টাইল */
+.food img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+/* কন্টেন্ট এরিয়া স্টাইল */
+.food h3 {
+    margin: 15px 15px 5px 15px;
+    color: #e74c3c;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.food p {
+    margin: 0 15px 15px 15px;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* বাটন স্টাইল */
+.food button {
+    display: block;
+    margin: 0 15px 15px 15px;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.food button:hover {
+    background-color: #2980b9;
+}
+
+/* রেস্পন্সিভ ডিজাইন */
+@media (max-width: 768px) {
+    #foods {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .food img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    #foods {
+        grid-template-columns: 1fr;
+    }
+    
+    .food {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
