@@ -38,6 +38,7 @@ nav {
 }
 
 .nav-links {
+    justify-content: center;
     list-style: none;
     display: flex;
     align-items: center;
@@ -71,13 +72,12 @@ nav {
 .dropdown-list {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 30px;
     left: 0;
-    background-color: #18a3e9;
-    border-radius: 0 0 5px 5px;
-    width: 180px;
-    z-index: 999;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #34adab;
+    border: 1px solid #47c06f;
+    width: 115px;
+    z-index: 1000;
 }
 
 .dropdown-list li {
