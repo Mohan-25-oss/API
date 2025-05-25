@@ -1,9 +1,6 @@
 /*Navbar Start*/
-document.querySelectorAll('.dropdown-list a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        // ইভেন্ট প্রোপাগেশন বন্ধ করবেন না
-        // e.stopPropagation(); // এটা থাকলে রিমুভ করুন
-    });
+document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
 });
 // Navbar End
 const loadFoodApi = () => {
