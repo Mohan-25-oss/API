@@ -58,6 +58,7 @@ nav {
 }
 
 .dropdown-list {
+    justify-items: center;
     display: none;
     position: absolute;
     top: 30px;
