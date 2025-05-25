@@ -1,35 +1,11 @@
-/*NAVBAR START*/
-function toggleMenu() {
-    const navLinks = document.getElementById("navLinks");
-    const menuToggle = document.querySelector(".menu-toggle");
-    
-    navLinks.classList.toggle("show");
-    
-    // এক্সেসিবিলিটি উন্নত করতে
-    const isExpanded = navLinks.classList.contains("show");
-    menuToggle.setAttribute("aria-expanded", isExpanded);
-    
-    // মোবাইল ভিউতে স্ক্রল লক করতে
-    if (isExpanded) {
-        document.body.style.overflow = "hidden";
-    } else {
-        document.body.style.overflow = "";
-    }
-}
-
-// বাইরে ক্লিক করলে মেনু বন্ধ হবে
-document.addEventListener("click", function(event) {
-    const navLinks = document.getElementById("navLinks");
-    const menuToggle = document.querySelector(".menu-toggle");
-    
-    if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
-        navLinks.classList.remove("show");
-        menuToggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-    }
+/*Navbar Start*/
+document.querySelectorAll('.dropdown-list a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        // ইভেন্ট প্রোপাগেশন বন্ধ করবেন না
+        // e.stopPropagation(); // এটা থাকলে রিমুভ করুন
+    });
 });
-
-/*NAVBAR END*/
+// Navbar End
 
 // USER START
 function loadApi(){

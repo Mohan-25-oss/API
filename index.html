@@ -8,27 +8,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<nav>
+    <div class="nav-container">
             <ul class="nav-links" id="navLinks">
-                <li class="dropdown-parent">
-                    <a href="#">User Menu</a>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="index.html">Users</a></li>
-                            <li><a href="html/posts.html">Posts</a></li>
-                            <li><a href="html/comments.html">Comments</a></li>
-                            <li><a href="html/todos.html">Todos</a></li>
-                            <li><a href="html/albums.html">Albums</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="countries.html">Countries</a></li>
-                <li><a href="food.html">Foods</a></li>
-            </ul>
-        </div>
-    </nav>
+                    <li class="dropdown-parent">
+                        <a href="#">User Menu ▼</a>
+                            <ul class="dropdown-list">
+                                <li><a href="index.html">Users</a></li>
+                                <li><a href="html/posts.html">Posts</a></li>
+                                <li><a href="html/comments.html">Comments</a></li>
+                                <li><a href="html/todos.html">Todos</a></li>
+                                <li><a href="html/albums.html">Albums</a></li>
+                            </ul>
+                    </li>
+                    <li><a href="countries.html">Countries</a></li>
+                    <li><div class="search-container">
+                            <input type="text" id="search" placeholder="Search country...">
+                            <button id="searchButton">Search</button>
+                        </div>
+                    </li>
+                    <li><a href="food.html">Foods</a></li>
+                    <li><div class="search-container">
+                            <input type="text" id="search" placeholder="Search for food...">
+                            <button id="searchButton">Search</button>
+                        </div>
+                    </li>
+                </ul>
+    </div>
+</nav>
 
 
 

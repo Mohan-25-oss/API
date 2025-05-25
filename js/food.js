@@ -1,3 +1,11 @@
+/*Navbar Start*/
+document.querySelectorAll('.dropdown-list a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        // ইভেন্ট প্রোপাগেশন বন্ধ করবেন না
+        // e.stopPropagation(); // এটা থাকলে রিমুভ করুন
+    });
+});
+// Navbar End
 const loadFoodApi = () => {
     fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
     .then(res => res.json())

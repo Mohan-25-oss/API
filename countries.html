@@ -8,13 +8,12 @@
 </head>
 <body>
     <!-- NAVBAR START -->
-    <nav>
-        <div class="nav-container">
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li class="dropdown-parent">
-                    <a href="#">User Menu</a>
-                    <div class="dropdown">
+<nav>
+    <div class="nav-container">
+        <ul class="nav-links" id="navLinks">
+            <li class="dropdown-parent">
+                    <a href="#">User Menu ▼</a>
+                    <div class="dropdown-list">
                         <ul>
                             <li><a href="index.html">Users</a></li>
                             <li><a href="html/posts.html">Posts</a></li>
@@ -24,12 +23,26 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="countries.html">Countries</a></li>
-                <li><a href="food.html">Foods</a></li>
-            </ul>
-        </div>
-    </nav>
+            <li><a href="../countries.html">Countries</a></li>
+            <li>
+                <div class="search-container">
+                    <input type="text" id="countrySearch" placeholder="Search country...">
+                    <button id="countrySearchButton">Search</button>
+                </div>
+            </li>
+            <li><a href="../food.html">Foods</a></li>
+            <li>
+                <div class="search-container">
+                    <input type="text" id="foodSearch" placeholder="Search for food...">
+                    <button id="foodSearchButton">Search</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
     <!-- NAVBAR END -->
+
+
     <h1>Explore The World</h1>
 <div id="country-details"></div>
 
