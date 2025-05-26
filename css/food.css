@@ -127,7 +127,7 @@ nav {
     background-color: #a573b3;
 }
 
-/* Food Grid Styles */
+/* Food Grid Start */
 #foods {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -257,3 +257,54 @@ nav {
         height: 180px;
     }
 }
+/* Food Grid end */
+/* Search button start */
+.search-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+#foodSearch {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+}
+
+#foodSearchButton {
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#foodSearchButton:hover {
+    background-color: #c0392b;
+}
+
+.food {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.food img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.error {
+    color: #e74c3c;
+}
+
+.no-results {
+    color: #666;
+}
+/* search button end */

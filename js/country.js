@@ -30,54 +30,107 @@ document.addEventListener("click", function(event) {
 });
 /*NAVBAR END*/
 // country start
+// DOM এলিমেন্ট সিলেক্ট করা
+const countrySearchInput = document.getElementById('countrySearch');
+const countrySearchButton = document.getElementById('countrySearchButton');
+const countriesContainer = document.getElementById('countries');
+const countryDetails = document.getElementById('country-details');
+
+// প্রাথমিকভাবে সব দেশ লোড করা
 const loadCountryApi = () => {
     fetch("https://restcountries.com/v3.1/all")
     .then(res => res.json())
     .then(data => displayCountries(data))
-}
+    .catch(error => {
+        console.error("Error loading countries:", error);
+        countriesContainer.innerHTML = '<p class="error">দেশ লোড করতে সমস্যা হয়েছে</p>';
+    });
+};
 
-loadCountryApi()
+// দেশ সার্চ করার ফাংশন
+const searchCountries = () => {
+    const searchTerm = countrySearchInput.value.trim();
+    
+    if (!searchTerm) {
+        alert("দয়া করে দেশের নাম লিখুন");
+        return;
+    }
 
-const displayCountries = (countries)=>{
-    const uiDiv = document.getElementById('countries')
+    countriesContainer.innerHTML = '<p>লোড হচ্ছে...</p>';
+    
+    fetch(`https://restcountries.com/v3.1/name/${searchTerm}`)
+    .then(res => res.json())
+    .then(data => {
+        if (data.length > 0) {
+            displaySingleCountry(data[0]); // প্রথম ম্যাচ করা দেশ দেখাবে
+        } else {
+            countriesContainer.innerHTML = '<p class="no-results">কোন দেশ পাওয়া যায়নি</p>';
+        }
+    })
+    .catch(error => {
+        console.error("Search error:", error);
+        countriesContainer.innerHTML = '<p class="error">সার্চ করতে সমস্যা হয়েছে</p>';
+    });
+};
+
+// সব দেশ দেখানোর ফাংশন
+const displayCountries = (countries) => {
+    countriesContainer.innerHTML = '';
+    
     countries.forEach(country => {
         const countryDiv = document.createElement('div');
-        countryDiv.classList.add("country")
-        console.log(countryDiv);
-        countryDiv.innerHTML= `
-        <img src="${country.flags.png}" alt="${country.name.common} flag">
-        <h3>Name: ${country.name.common}</h3>
-        <p>Population: ${country.population}</p>
-        <button onclick="loadSingleCountryByName('${country.name.common}')">See Details</button>
-        `
-        uiDiv.appendChild(countryDiv)
-        
+        countryDiv.classList.add("country");
+        countryDiv.innerHTML = `
+            <img src="${country.flags.png}" alt="${country.name.common} flag">
+            <h3>Country: ${country.name.common}</h3>
+            <p><strong>Capital:</strong> ${country.capital || 'N/A'}</p>
+            <p>Population: ${country.population.toLocaleString()}</p>
+            <button onclick="loadSingleCountryByName('${country.name.common}')">See details</button>
+        `;
+        countriesContainer.appendChild(countryDiv);
     });
-    
-}
+};
 
+// দেশের নাম দিয়ে বিস্তারিত লোড করা
 const loadSingleCountryByName = (name) => {
     const url = `https://restcountries.com/v3.1/name/${name}`;
     fetch(url)
     .then(res => res.json())
-    .then(data => displaySingleCountry(data[0]));
-}
+    .then(data => displaySingleCountry(data[0]))
+    .catch(error => {
+        console.error("Country details error:", error);
+        countryDetails.innerHTML = '<p class="error">দেশের বিস্তারিত লোড করতে সমস্যা হয়েছে</p>';
+    });
+};
 
+// একটি দেশের বিস্তারিত দেখানোর ফাংশন
 const displaySingleCountry = (country) => {
-    window.scrollTo(0, 0); // Scroll to the top of the page
-    // console.log(country);
-    // console.log(country-details);
-    const countryDetails = document.getElementById('country-details');
+    window.scrollTo(0, 0); // পেজের উপরে স্ক্রল করবে
+    
     countryDetails.innerHTML = `
-    <img src="${country.flags.png}" alt="${country.name.common} flag">
-    <h1>Name: ${country.name.common}</h1>
-    <h1>Capital: ${country.capital}</h1>
-    <h3>Population: ${country.population}</h3>
-    <h3>Maps: ${country.maps}</h3>
-    <a href="">YouTube</a>
-    <a href="${country.maps?.googleMaps || '#'}" 
-        target="_blank" 
-        class="https://maps.app.goo.gl/K7DFerrTtVJtmyfy6">Map</a>
-    `;   
+        <div class="country-detail-card">
+            <img src="${country.flags.png}" alt="${country.name.common} flag">
+            <div class="country-info">
+                <h1>Country: ${country.name.common}</h1>
+                <p><strong>Capital:</strong> ${country.capital || 'N/A'}</p>
+                <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+                <p><strong>Region:</strong> ${country.region}</p>
+                <p><strong>Currency:</strong> ${country.currencies ? Object.values(country.currencies)[0].name : 'N/A'}</p>
+                <p><strong>Language:</strong> ${country.languages ? Object.values(country.languages).join(', ') : 'N/A'}</p>
+                <a href="${country.maps?.googleMaps || 'https://maps.app.goo.gl/hStcg5ocvuK4x7128'}" target="_blank" class="map-btn">গুগল ম্যাপে দেখুন</a>
+            </div>
+        </div>
+    `;
+    
+    // সার্চ রেজাল্ট দেখানোর পর মূল লিস্ট লুকিয়ে ফেলা
+    countriesContainer.style.display = "display: flex";
+};
 
-}
+// ইভেন্ট লিসেনার যোগ করা
+countrySearchButton.addEventListener('click', searchCountries);
+countrySearchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') searchCountries();
+});
+
+// পেজ লোড হলে সব দেশ লোড করা
+loadCountryApi();
