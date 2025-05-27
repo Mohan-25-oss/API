@@ -30,7 +30,7 @@ const displayCategories = (foods) => {
             <img src="${food.strCategoryThumb}" alt="${food.strCategory}">
             <h3>Category: ${food.strCategory}</h3>
             <p>Description: ${food.strCategoryDescription.slice(0, 100)}...</p>
-            <button onclick="loadMealsByCategory('${food.strCategory}')">ore items...</button>
+            <button onclick="loadMealsByCategory('${food.strCategory}')">See more items...</button>
         `;
         foodsContainer.appendChild(foodDiv);
     });
