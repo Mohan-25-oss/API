@@ -107,15 +107,11 @@ nav {
 /* Search Container in Nav (commented out in your HTML) */
 .search-container {
     display: flex;
-    padding: 10px 15px;
     display: block;
 }
 
 .search-container span{
     display: block;
-    position: fixed;
-    /* top: 100px; */
-    right: 95px;
 }
 
 .search-container input {
@@ -243,8 +239,8 @@ header {
 /* Search Section */
 .search-container {
     max-width: 1200px;
-    margin: 30px auto;
-    padding: 150px 20px;
+    margin: 10px auto;
+    padding: 50px 10px;
     text-align: center;
 }
 
