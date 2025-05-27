@@ -13,7 +13,7 @@
         <button class="mobile-menu-btn">☰</button>
         <ul class="nav-links" id="navLinks">
             <li class="dropdown-parent">
-                    <a href="#">User Menu▼</a>
+                    <a href="#">User Menu</a>
                     <div class="dropdown-list">
                         <ul>
                             <li><a href="index.html">Users</a></li>
@@ -42,15 +42,27 @@
     </div>
 </nav>
     <!-- NAVBAR END -->
+                <div class="search-container">
+                    <span>
+                        <input type="text" id="foodSearch" placeholder="Search here..." />
+                        <button id="foodSearchButton">Search</button>
+                    </span>
 
-    <div class="search-container">
-                    <input type="text" id="foodSearch" placeholder="Search for food...">
-                    <button id="foodSearchButton">Search</button>
+                    <div id="foods"></div>
+                    <div id="food-details" style="display: none;"></div>
                 </div>
-    <div class="search-container">
 
 
-        <div id="foods"></div>
+    <div id="users"></div>
+
+    <button onclick="goBackToList()">⬅ Back to List</button>
+
+
+    <!-- Food Grid Container -->
+    <section id="foods"></section>
+
+    <!-- Food Detail View (hidden by default) -->
+    <div id="food-details"></div>
 
 
 
